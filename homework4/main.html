@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+//attribute  vec4 vColor;
+attribute  vec4 vPosition;//顶点位置
+attribute  vec3 vNormal;//法向量
+attribute  vec2 vTexCoord;//纹理坐标
+
+varying vec4 fColor;
+varying vec2 fTexCoord;
+
+uniform int shadow;//判断绘制的是否为阴影
+uniform vec4 ambientProduct, diffuseProduct, specularProduct;//环境光，漫反射，镜面反射
+uniform float shininess;
+uniform mat4 modelViewMatrix;//模型-视图矩阵
+uniform mat4 shadowModelViewMatrix;//模型-视图矩阵
+uniform mat4 projectionMatrix;//投影矩阵
+uniform vec4 lightPosition;//光源位置
+
+void main()
+{
+	gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+    
+	if(shadow==1)
+	{
+		
+		fColor=vec4(0,0,0,1);
+		return;
+	}
+    vec3 pos = -(modelViewMatrix * vPosition).xyz;
+    
+    //fixed light postion
+    
+    vec3 light = lightPosition.xyz;
+    vec3 L = normalize( light - pos );
+
+    vec3 E = normalize( -pos );
+    vec3 H = normalize( L + E );
+    
+    vec4 NN = vec4(vNormal,0);
+
+    // Transform vertex normal into eye coordinates
+       
+    vec3 N = normalize( (modelViewMatrix*NN).xyz);
+
+    // Compute terms in the illumination equation
+    vec4 ambient = ambientProduct;
+
+    float Kd = max( dot(L, N), 0.0 );
+    vec4  diffuse = Kd*diffuseProduct;
+
+    float Ks = pow( max(dot(N, H), 0.0), shininess );
+    vec4  specular = Ks * specularProduct;
+    
+    if( dot(L, N) < 0.0 ) {
+	specular = vec4(0.0, 0.0, 0.0, 1.0);
+    } 
+
+ 
+   // fColor = vColor;
+    fColor = ambient + diffuse +specular;
+    fColor.a = 1.0;
+
+    fTexCoord = vTexCoord;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+
+varying vec4 fColor;
+varying  vec2 fTexCoord;
+
+uniform sampler2D texture;
+
+
+void main()
+{
+    gl_FragColor = fColor*(texture2D(texture, fTexCoord));
+}
+</script>
+
+<script type="text/javascript" src="js/Common/webgl-utils.js"></script>
+<script type="text/javascript" src="js/Common/initShaders.js"></script>
+<script type="text/javascript" src="js/Common/MV.js"></script>
+<script type="text/javascript" src="js/canvas.js"></script>
+<script type="text/javascript" src="js/objReader.js"></script>
+<script type="text/javascript" src="js/color.js"></script>
+<script type="text/javascript" src="js/camera.js"></script>
+<script type="text/javascript" src="js/graph3D.js"></script>
+<script type="text/javascript" src="js/skybox.js"></script>
+<script type="text/javascript" src="js/content.js"></script>
+<script type="text/javascript" src="js/light.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/button.js"></script>
+
+<body>
+    <canvas id="gl-canvas" width="640" height="640">
+        Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+    <img id="bgImage" src="src/zuizhong2.jpg" hidden>
+
+    </img>
+</body>
+
+</html>
