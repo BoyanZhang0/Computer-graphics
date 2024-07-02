@@ -1,0 +1,205 @@
+div.canvascontainer {
+    width: 640px;
+    height: 640px;
+    margin: 10px auto;
+}
+
+div.img-menu {
+    width: 900px;
+    height: 80px;
+    margin: 10px auto;
+    border-bottom: 1px solid #dfdfdf;
+}
+span.text {
+    font-size: 14px;
+    color: grey;
+}
+a {
+    cursor: pointer;
+    font-size: 14px;
+}
+a:hover {
+    font-weight: bold;
+    color: green;
+}
+input[type="text"] {
+    font-size: 14px;
+    width: 60px;
+    border: none;
+    border-bottom :1px solid #CCC;
+}
+
+input.color {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #dfdfdf;
+    border-radius: 50%;
+    outline: none;
+}
+
+input.shape {
+    border: 2px solid #dfdfdf;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    outline: none;
+}
+#id-add-img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #dfdfdf;
+    border-radius: 50%;
+    color: grey;
+    font-size: 20px; 
+    background: white;
+    cursor:pointer;
+    outline: none;
+}
+
+#id-canvas-color-1 {
+    background: white;
+}
+#id-canvas-color-2 {
+    background: black;
+}
+#id-canvas-color-3 {
+    background: grey;
+}
+#id-canvas-color-4 {
+    background: pink;
+}
+#id-canvas-color-5 {
+    background: #BBFFBB;
+}
+#id-canvas-color-6 {
+    background: #81C0C0;
+}
+#id-canvas-color-input {
+    background: url(../src/color-img.png) ;
+}
+
+#id-face-shape-01 {
+    background: url(../src/shape01.png) ;
+}
+#id-face-shape-02 {
+    background: url(../src/shape02.png) ;
+}
+#id-face-shape-03 {
+    background: url(../src/shape03.png) ;
+}
+#id-face-shape-1 {
+    background: url(../src/shape1.png) ;
+}
+#id-face-shape-2 {
+    background: url(../src/shape2.png) ;
+}
+#id-face-shape-3 {
+    background: url(../src/shape3.png) ;
+}
+#id-face-shape-4 {
+    background: url(../src/shape4.png) ;
+}
+#id-face-shape-5 {
+    background: url(../src/shape5.png) ;
+}
+#id-face-shape-7 {
+    background: url(../src/shape6.png) ;
+}
+#id-face-shape-6 {
+    background: url(../src/shape7.png) ;
+}
+#id-face-shape-8 {
+    background: url(../src/shape8.png) ;
+}
+#id-face-shape-9 {
+    background: url(../src/shape9.png) ;
+}
+
+#id-face-color-1 {
+    background: black;
+}
+
+#id-face-color-2 {
+    background: red;
+}
+
+#id-face-color-3 {
+    background: green;
+}
+
+#id-face-color-4 {
+    background: blue;
+}
+
+#id-face-color-5 {
+    background: purple;
+}
+
+#id-face-color-6 {
+    background: yellow;
+}
+
+#id-face-color-input {
+    background: url(../src/color-img.png) ;
+}
+
+#gl-canvas {
+    border: 1px solid #DFDFDF;
+}
+
+#div1 .active {
+    background:blue;
+}
+
+#div1 div {
+    width:200px;
+    height:200px;
+    background:gray;
+    border:1px solid black;
+    display:none;
+}
+
+body,ul,li {
+    font:12px/1.5 arial;
+}
+
+ul,li {
+    list-style:none;
+}
+
+.wrap {
+    font-size:16px;
+    text-align:center;
+    width:900px; margin:20px auto;
+}
+.hide {
+    display:none;
+}
+
+#tab_t {
+    padding-bottom:20px;
+    height:25px;
+    border-bottom:1px solid #ccc;
+}
+
+#tab_t li {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    display:inline;
+    line-height:30px; 
+    margin:0px 20px; 
+    background:#fff; 
+    cursor:pointer
+}
+
+#tab_t .act { 
+    position:relative; 
+    height:25px; 
+    margin-bottom:-1px; 
+    background:#dfdfdf;
+}
+
+#tab_c {
+    border-top:none; 
+}
