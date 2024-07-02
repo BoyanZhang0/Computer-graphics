@@ -1,0 +1,9 @@
+function initSkyBox()
+{
+	
+}
+
+function updateSkyBox()
+{
+	
+}
